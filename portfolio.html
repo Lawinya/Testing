@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lawinya Rajendra Gophane — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --bg-alt: #11161d;
+      --text: #e6edf3;
+      --muted: #a8b3c1;
+      --primary: #79c0ff;
+      --accent: #b9a6ff;
+      --card: #121821;
+      --border: #1f2a37;
+      --success: #7dd3fc;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(180%) blur(8px);
+      background: color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .brand { font-weight: 700; letter-spacing: 0.2px; }
+    .nav-links { display: flex; gap: 20px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border);
+      background: var(--bg-alt); color: var(--text); cursor: pointer;
+    }
+    .btn:hover { border-color: var(--primary); }
+    .hero {
+      padding: 80px 0 40px; text-align: left;
+      display: grid; grid-template-columns: 1fr; gap: 24px;
+    }
+    .hero h1 { font-size: 36px; margin: 0 0 10px; }
+    .tag { color: var(--muted); font-weight: 600; }
+    .cta { margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      border: 1px solid color-mix(in oklab, var(--primary) 60%, var(--border));
+      background: color-mix(in oklab, var(--bg) 70%, var(--primary));
+      color: var(--text);
+    }
+    .section { padding: 40px 0; }
+    .section h2 { font-size: 24px; margin: 0 0 14px; }
+    .muted { color: var(--muted); }
+    .grid {
+      display: grid; gap: 18px;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-8 { grid-column: span 8; }
+    .col-12 { grid-column: span 12; }
+    @media (max-width: 900px) {
+      .col-4, .col-6, .col-8 { grid-column: span 12; }
+      .hero { text-align: left; }
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .card h3 { margin: 0 0 6px; font-size: 18px; }
+    .pill {
+      display: inline-block; padding: 6px 10px; border-radius: 999px;
+      border: 1px solid var(--border); margin-right: 8px; margin-bottom: 6px;
+      color: var(--muted); font-size: 12px;
+    }
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0; color: var(--muted);
+    }
+    .tagline { font-size: 18px; }
+    .avatar {
+      width: 96px; height: 96px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--bg); font-weight: 700;
+    }
+    .sr-only { position: absolute; clip: rect(0,0,0,0); width: 1px; height: 1px; overflow: hidden; }
+    /* Contact form */
+    form { display: grid; gap: 12px; }
+    input, textarea {
+      width: 100%; padding: 12px 14px; border-radius: 10px;
+      border: 1px solid var(--border); background: var(--bg-alt); color: var(--text);
+    }
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+    .success { color: var(--success); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Lawinya R. Gophane</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle" class="btn" aria-label="Toggle theme">Dark</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="grid">
+        <div class="col-8">
+          <span class="tag">Cloud engineer at SAS India</span>
+          <h1>Hi, I’m Lawinya Rajendra Gophane</h1>
+          <p class="tagline muted">I design, build, and scale cloud-native systems with a focus on reliability, performance, and security.</p>
+          <div class="cta">
+            <a href="#projects" class="btn btn-primary">View my work</a>
+            <a href="#contact" class="btn">Get in touch</a>
+          </div>
+        </div>
+        <div class="col-4" style="display:flex; justify-content:flex-end; align-items:flex-start;">
+          <!-- Simple avatar with initials; replace with your photo -->
+          <div class="avatar" title="Profile photo">LR</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <h2>About</h2>
+      <div class="grid">
+        <div class="col-8">
+          <p class="muted">
+            I’m a cloud engineer specializing in AWS and Kubernetes, passionate about building resilient, observable platforms and enabling fast, safe delivery.
+            I enjoy solving complex infrastructure challenges, automating everything I can, and mentoring teams on cloud best practices.
+          </p>
+          <p class="muted">
+            Recent focus areas include IaC with Terraform, container orchestration on EKS, cost optimization, and zero-downtime deployments using modern CI/CD.
+          </p>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <h3>Highlights</h3>
+            <ul class="muted" style="padding-left:18px; margin:0;">
+              <li>Built and operated production-grade Kubernetes clusters</li>
+              <li>Designed secure IAM and multi-account AWS architectures</li>
+              <li>Automated CI/CD pipelines with GitHub Actions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="col-6">
+          <div class="card">
+            <h3>EKS Platform Blueprint</h3>
+            <p class="muted">Terraform modules and GitOps workflows to provision a secure, scalable Kubernetes platform on AWS.</p>
+            <div>
+              <span class="pill">AWS</span>
+              <span class="pill">EKS</span>
+              <span class="pill">Terraform</span>
+              <span class="pill">ArgoCD</span>
+            </div>
+            <p><a href="#" aria-disabled="true">GitHub (add link)</a></p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+            <h3>Serverless ETL Pipeline</h3>
+            <p class="muted">Event-driven data processing with Lambda, S3, and Step Functions, including observability and retries.</p>
+            <div>
+              <span class="pill">Lambda</span>
+              <span class="pill">S3</span>
+              <span class="pill">Step Functions</span>
+              <span class="pill">Python</span>
+            </div>
+            <p><a href="#" aria-disabled="true">Demo (add link)</a></p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+            <h3>Cost Optimization Toolkit</h3>
+            <p class="muted">Dashboards and automated policies to right-size resources, reduce data transfer, and track savings.</p>
+            <div>
+              <span class="pill">AWS</span>
+              <span class="pill">Cost Explorer</span>
+              <span class="pill">Athena</span>
+              <span class="pill">QuickSight</span>
+            </div>
+            <p><a href="#" aria-disabled="true">Write-up (add link)</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="col-6">
+          <div class="card">
+            <h3>Cloud & Infrastructure</h3>
+            <p>
+              <span class="pill">AWS</span>
+              <span class="pill">IAM</span>
+              <span class="pill">VPC</span>
+              <span class="pill">EC2</span>
+              <span class="pill">S3</span>
+              <span class="pill">RDS</span>
+              <span class="pill">CloudWatch</span>
+            </p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+            <h3>Containers & DevOps</h3>
+            <p>
+              <span class="pill">Docker</span>
+              <span class="pill">Kubernetes</span>
+              <span class="pill">EKS</span>
+              <span class="pill">Terraform</span>
+              <span class="pill">GitHub Actions</span>
+              <span class="pill">Helm</span>
+            </p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+            <h3>Languages & Tools</h3>
+            <p>
+              <span class="pill">Python</span>
+              <span class="pill">Bash</span>
+              <span class="pill">YAML</span>
+              <span class="pill">SQL</span>
+              <span class="pill">Linux</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="grid">
+        <div class="col-6">
+          <div class="card">
+            <h3>Reach out</h3>
+            <p class="muted">Email me and I’ll get back to you:</p>
+            <p><strong>Email:</strong> <a href="mailto:lawinyagophane18@gmail.com">lawinyagophane18@gmail.com</a></p>
+            <p><strong>LinkedIn:</strong> <a href="#" aria-disabled="true">Add your link</a></p>
+            <p><strong>GitHub:</strong> <a href="#" aria-disabled="true">Add your link</a></p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+            <h3>Quick message</h3>
+            <form id="contactForm">
+              <label class="sr-only" for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+              <label class="sr-only" for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Your message" required></textarea>
+              <button class="btn btn-primary" type="submit">Send</button>
+              <p id="status" class="muted" style="margin:0;"></p>
+            </form>
+            <p class="muted" style="margin-top:10px;">This simple form opens your email client with a pre-filled message.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>&copy; <span id="year"></span> Lawinya Rajendra Gophane</span>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle (defaults to dark)
+    const btn = document.getElementById('themeToggle');
+    let dark = true;
+    btn.addEventListener('click', () => {
+      dark = !dark;
+      if (!dark) {
+        document.documentElement.style.setProperty('--bg', '#f7f8fa');
+        document.documentElement.style.setProperty('--bg-alt', '#ffffff');
+        document.documentElement.style.setProperty('--text', '#0b1220');
+        document.documentElement.style.setProperty('--muted', '#4b5563');
+        document.documentElement.style.setProperty('--card', '#ffffff');
+        document.documentElement.style.setProperty('--border', '#e5e7eb');
+        btn.textContent = 'Light';
+      } else {
+        document.documentElement.style.setProperty('--bg', '#0b0f14');
+        document.documentElement.style.setProperty('--bg-alt', '#11161d');
+        document.documentElement.style.setProperty('--text', '#e6edf3');
+        document.documentElement.style.setProperty('--muted', '#a8b3c1');
+        document.documentElement.style.setProperty('--card', '#121821');
+        document.documentElement.style.setProperty('--border', '#1f2a37');
+        btn.textContent = 'Dark';
+      }
+    });
+
+    // Contact "send" -> mailto
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const email = 'lawinyagophane18@gmail.com';
+      const subject = encodeURIComponent('Portfolio inquiry from ' + name);
+      const body = encodeURIComponent(message + '\n\n— Sent from portfolio site');
+      const mailto = `mailto:${email}?subject=${subject}&body=${body}`;
+      window.location.href = mailto;
+      const status = document.getElementById('status');
+      status.textContent = 'Opening your email client...';
+      status.className = 'success';
+    });
+  </script>
+</body>
+</html>
+
+
+
+How to deploy
+- GitHub Pages:
+- Create repo: new repository named username.github.io.
+- Add file: commit this as index.html.
+- Open: https://username.github.io
+- Netlify/Vercel:
+- New site: drag-and-drop the folder with index.html.
+- Publish: follow prompts; your site goes live instantly.
+
+What I still need to personalize
+- About: A short bio (2–3 sentences) and 2–3 career highlights.
+- Projects:
+- Title:
+- Description:
+- Tech stack:
+- Link: GitHub or demo.
+- Links:
+- LinkedIn URL:
+- GitHub URL:
+- Photo: Share an image or keep the initials avatar.
+Share these details, and I’ll plug them in and deliver a final version with your content.
